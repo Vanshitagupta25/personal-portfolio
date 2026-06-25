@@ -9,3 +9,8 @@ var typed = new Typed(".text", {
   backDelay: 1000,
   loop: true
 });
+// for(let i = 0; i<5; i++){
+//   setTimeout(() => {
+//     console.log(i);
+//   }, 1000);
+// }
