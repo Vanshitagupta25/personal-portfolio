@@ -66,7 +66,7 @@ section[id] {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3rem;
+    padding: 3rem 0;
 }
 
 .project-card img {
@@ -249,7 +249,7 @@ section[id] {
 }
 
 .container {
-    padding: 5.625rem;
+    padding: 5.625rem 0;
 }
 
 .services-list {
@@ -318,7 +318,7 @@ section[id] {
 .container1 {
     width: 100%;
     max-width: 37.5rem;
-    padding: 0 2.5rem 2.5rem;
+    padding: 0 0 2.5rem;
     height: auto;
     margin: 0;
 }
@@ -700,10 +700,6 @@ section[id] {
     padding: 0;
 }
 
-.projects {
-    padding: 4rem 2.5rem;
-}
-
 .project-info {
     padding: 1.25rem;
     text-align: left;
@@ -751,6 +747,142 @@ section[id] {
 .project-links a:hover {
     background: cyan;
     color: #081b29;
+}
+
+.experience {
+    padding: 4rem 0 2.5rem;
+}
+
+.experience-list {
+    --exp-gap: 2rem;
+    --exp-dot: 1rem;
+    position: relative;
+    display: grid;
+    gap: 3.125rem;
+    margin: 3.125rem auto 0;
+}
+
+.experience-list::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0.1875rem;
+    background: rgba(0, 238, 255, 0.4);
+}
+
+.timeline-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--exp-gap);
+}
+
+.timeline-item:nth-child(odd) .experience-card {
+    grid-column: 1;
+}
+
+.timeline-item:nth-child(even) .experience-card {
+    grid-column: 2;
+}
+
+.timeline-item::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: var(--exp-dot);
+    height: var(--exp-dot);
+    border-radius: 50%;
+    background: #0ef;
+    box-shadow: 0 0 0.625rem #0ef;
+    z-index: 1;
+}
+
+.experience-card {
+    position: relative;
+    min-width: 0;
+    background: #0f172a;
+    border-radius: 0.875rem;
+    padding: 1.875rem;
+    box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1.25rem 2.8125rem rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- Experience: tablet (keep alternating) ---------- */
+@media (max-width: 992px) {
+    .experience-list {
+        --exp-gap: 1.5rem;
+        max-width: 50rem;
+        gap: 2.5rem;
+    }
+
+    .experience-card {
+        padding: 1.5rem;
+    }
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.3125rem 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.experience-header h3 {
+    color: #0ef;
+    font-size: 1.375rem;
+    margin-bottom: 0.25rem;
+}
+
+.experience-header h4 {
+    color: #fff;
+    font-size: 1.0625rem;
+    font-weight: 600;
+}
+
+.experience-date {
+    color: rgb(177, 177, 177);
+    font-size: 0.875rem;
+    white-space: nowrap;
+}
+
+.experience-details {
+    list-style: none;
+    margin-bottom: 0.9375rem;
+    padding-left: 1.25rem;
+}
+
+.experience-details li {
+    color: #ddd;
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.experience-details li::before {
+    content: "";
+    position: absolute;
+    left: -1.25rem;
+    top: 0.625rem;
+    width: 0.4375rem;
+    height: 0.4375rem;
+    background: #0ef;
+    border-radius: 50%;
+}
+
+.experience-card .tech-list {
+    margin-bottom: 0;
 }
 
 .row {
@@ -831,6 +963,7 @@ section[id] {
     padding: 0 2.5rem;
     max-width: 75rem;
     width: 100%;
+    min-height: 100vh;
     box-sizing: border-box;
 }
 
@@ -1044,7 +1177,7 @@ form textarea {
 
 @media (min-width: 1025px) {
     .container1 {
-        padding-top: 0;
+        padding-top: 2.5rem;
     }
 }
 
@@ -1097,7 +1230,7 @@ form textarea {
     }
 
     .container {
-        padding: 3.75rem 2.5rem;
+        padding: 3.75rem 0;
     }
 
     .container1 {
@@ -1126,11 +1259,11 @@ form textarea {
     }
 
     .home {
-        padding: 10rem 1.25rem 3.75rem;
+        padding: 10rem 0 3.75rem;
     }
 
     .about {
-        padding: 2.5rem 1.25rem;
+        padding: 2.5rem 0;
     }
 
     .header {
@@ -1190,7 +1323,40 @@ form textarea {
     }
 
     .projects {
-        padding: 3.75rem 1.5rem;
+        padding: 3.75rem 0;
+    }
+
+    .experience {
+        padding: 3.75rem 0;
+    }
+
+    .experience-list {
+        --exp-gap: 1.5rem;
+        --exp-line: 2rem;
+        max-width: 100%;
+        gap: 2.5rem;
+    }
+
+    .experience-list::before {
+        left: calc(var(--exp-line) / 2);
+    }
+
+    .timeline-item {
+        grid-template-columns: var(--exp-line) 1fr;
+    }
+
+    .timeline-item:nth-child(odd) .experience-card,
+    .timeline-item:nth-child(even) .experience-card {
+        grid-column: 2;
+    }
+
+    .timeline-item::after {
+        left: calc(var(--exp-line) / 2);
+    }
+
+    .experience-header {
+        flex-direction: column;
+        gap: 0.3125rem;
     }
 
     .contact {
@@ -1236,11 +1402,11 @@ form textarea {
     }
 
     .container {
-        padding: 2.5rem 1.25rem;
+        padding: 2.5rem 0;
     }
 
     .container1 {
-        padding: 2.5rem 1.25rem;
+        padding: 2.5rem 0;
     }
 
     .sub-title,
@@ -1251,7 +1417,15 @@ form textarea {
     }
 
     .projects {
-        padding: 2.5rem 1rem;
+        padding: 2.5rem 0;
+    }
+
+    .experience {
+        padding: 2.5rem 0;
+    }
+
+    .experience-card {
+        padding: 1.25rem;
     }
 
     .project-links {
@@ -1300,5 +1474,29 @@ form textarea {
     .contact-form form .send {
         padding: 0.75rem 1rem;
         font-size: 1rem;
+    }
+}
+
+/* ---------- Global horizontal alignment ---------- */
+.content-container {
+    width: 100%;
+    max-width: 75rem;
+    margin: 0 auto;
+    min-height: 100vh;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+@media (max-width: 768px) {
+    .content-container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }
